@@ -1,0 +1,184 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airplanes</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body onload = "load()">
+    <header id="main-header">
+      <div id="title-container" class="display">
+          <a href="#top"><h1 class="main-title" id="title" style="border:none; margin:0;">Airport Search</h1></a>
+      </div>
+      
+      <div id="nav">
+          <a href="#search-and-sort">SEARCH & SORT</a>  
+          <a href="#distance-calculator-container">DISTANCE CALCULATOR</a>         
+      </div>
+    </header>
+    <section id="top">
+      <h1 class="main-title"><br></h1>
+      <p class="subtitle">All-extensive program with information for 70000+ airports around the world</p>
+      <div class="description">
+        <p class="subtitle">Features Include: </p>
+        <ul>
+          <li><a href="#search-and-sort">Search Airports</a></li>
+          <li><a href="#search-and-sort">Sorting Airports</a></li>
+          <li><a href="#distance-calculator-container">Calculate Distance Between 2+ Airports</a></li>
+
+          <li>Coming Soon...</li>
+        </ul>
+      </div>
+      <p class="subtitle" id="program-start-time-output"></p>
+    </section>
+    
+
+    <section>
+      <h1 class="main-title" id="search-and-sort" >AIRPORT SEARCH & SORT</h1>
+      <div id="search-container">
+        <h1>SEARCH: </h1>
+        <input type="text" id="search-prompt">
+        <div style="display:flex; gap:4px; justify-content: center; align-items: center;">
+          <p>Search By: </p>
+          <div class="options-container">
+            <select id="search-option-display">
+              <option value="0">ID</option>
+              <option value="1">Name</option>
+              <option value="2">Type</option>
+              <option value="3">Country</option>
+            </select>
+          </div>
+        </div>
+        <button id="start-search">Search</button>
+        <p class="time-display">Search time (in ms): <span id="search-time-output"></span></p>
+      </div>
+      <div id="sort-container" style="display: flex; align-items: center; justify-content: center; gap:10px">
+        <h1>SORT: </h1>
+        <p>Sort By: </p>
+        <select name="sort-category" id="sort-category">
+          <option value="0">ID</option>
+          <option value="1">Name</option>
+          <option value="2">Type</option>
+          <option value="3">Country</option>
+          <option value="4">Longitude</option>
+          <option value="5">Latitude</option>
+          <option value="6">Continent</option>
+          <option value="7">Region</option>
+        </select>
+        <select name="sort-order" id="sort-order">
+          <option value="0">Ascending</option>
+          <option value="1">Descending</option>
+        </select>
+        <button id="initiate-sort">Sort</button>
+        <p class="time-display">Sort Time (in ms): <span id="sort-time-output"></span></p>
+      </div>
+        
+      
+      <table id="display-table">
+        <thead>
+          <tr>
+            <th>
+              <div class="table-label">
+                ID
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Name
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Type
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Country
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Longitude
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Latitude
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Continent
+              </div>
+            </th>
+            <th>
+              <div class="table-label">
+                Region
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+      <div id="button-container">
+        <button id="prev-page">Previous</button>
+        <div id="page-links">
+          <input type="text" id="current-page-number">
+          <h1>/</h1>
+          <p id="total-page-number"></p>
+          <button id="refresh-page-button">Go</button>
+        </div>
+        <button id="next-page">Next</button>
+      </div>
+    </section>
+
+
+    <section id="bonus-section">
+      <div id="distance-calculator-container">
+        <div style="display:flex; gap: 20px; margin-top:100px;">
+          <h1>Distance Calculator</h1>
+          <button id="add-destination-button">Add Airport</button>
+          <button id="run-distance-calculator">Calculate</button>
+        </div>
+
+        <div id="destination-list">
+          
+        </div>
+        <h1 id="distance-calculator-output"></h1>
+        <h1 class="time-display">Calculator Time (in ms): <span id="distance-calculator-time-output"></span></h1>
+      </div>
+      <div id="trip-planner">
+        <h1>Input the starting airport, the ending airport, and the number of transitions you want</h1>
+        <div style="display:flex;flex-direction:column;margin:10px;">
+          <div style="display:flex; gap:20px;">
+            <h1>First Airport: </h1>
+            <input type="text" id="shortest-path-first-airport">
+            <h1>Second Airport: </h1>
+            <input type="text" id="shortest-path-second-airport">
+          </div>
+          <div style="display:flex;margin-top: 10px; gap:20px;">
+            <h1>Number of Transitions: </h1>
+            <input type="text" id="transition-number">
+            <button id="search-shortest-path-button">Search</button>
+          </div>
+        </div>
+        <p>Shortest Path Available (Probably): <span id="shortest-path-output"></span></p>
+        <p>Running time: <span  id="shortest-path-time-output"></span></p>
+
+      </div>
+    </section>
+
+
+    <!--Do not move the line below-->
+    <script src="./dist/DO_NOT_TOUCH.js"></script>
+    <!--Do not move the line above-->
+
+    <script src="./dist/index.js"></script>
+    <script src="./dist/sorting.js"></script>
+    <script src="./dist/searching.js"></script>
+    <script src="./dist/bonus_one_and_two.js"></script>
+    <script src="./dist/bonus_three.js"></script>
+  </body>
+</html>
